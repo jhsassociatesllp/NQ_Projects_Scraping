@@ -1,0 +1,6 @@
+playwright
+pandas
+openpyxl
+pymongo
+dnspython
+python-dotenv
