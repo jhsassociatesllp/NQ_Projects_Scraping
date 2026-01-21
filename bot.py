@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 LOGIN_URL = os.getenv("LOGIN_URL")
+print("LOGIN_URL:", LOGIN_URL)
 
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
@@ -161,7 +162,7 @@ def save_to_excel(data: list, output_path: str):
 
 def run_bot():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True, slow_mo=30)
+        browser = p.chromium.launch(headless=False, slow_mo=30)
         context = browser.new_context()
         page = context.new_page()
 
@@ -178,7 +179,7 @@ def run_bot():
         page.wait_for_timeout(2000)
         page.click("button.swal2-confirm")
         page.wait_for_timeout(3000)
-        page.click("a[href='https://nexusquant.in/PMS/project-list']")
+        page.click("a[href='https://nexusquant.in/project-list']")
         page.wait_for_timeout(8000)
 
         # ================= SET PAGINATION = ALL =================
