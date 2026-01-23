@@ -162,7 +162,7 @@ def save_to_excel(data: list, output_path: str):
 
 def run_bot():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, slow_mo=30)
+        browser = p.chromium.launch(headless=True, slow_mo=30)
         context = browser.new_context()
         page = context.new_page()
 
